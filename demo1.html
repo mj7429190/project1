@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery
+		.min.js"></script><!-- this is Jquery cdn for $ inbuild method-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap
+		/3.4.1/css/bootstrap.min.css">
+		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootst
+		rap.min.js"></script>
+    <title>Document</title>
+    <style>
+    .modal-header{
+        border-bottom:unset;
+        padding-bottom:unset;
+        }
+        h2 ~ p {
+            margin-bottom: 20px;
+            color: red;
+            }
+    </style>
+<script>
+    window.onload = function(){
+      $("#myModal").modal('show');
+    }
+</script>
+</head>
+<body>
+    <input type="text" value="hi" onchange="myfun(this.value)">
+    <p id="demo1" onmouseover="mouseover()" onmouseout="mouseout()">click me!</p>
+    <p id="move" onmousemove="mousemove()">mouse move</p>
+    <p id="enter" onmouseenter="mouseenter()">mouse enter</p>
+    <p id="over" onmouseover="mouseover()">mouseover</p>
+    <input type="text"  onkeydown="keydown()">
+    <p id="down" ></p>
+    <p id="count" ></p>
+
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+        <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        </div> 
+        </div>
+        </div>
+        <form action="" method="POST" >
+            <input type="text" id="uname" name="uname" placeholder="enter username" 
+            onfocus="onFocusFun(this.id);" onblur="onBlurFub(this.id);" autocomplete="off">
+            <input type="password" id="pass" name="pass" placeholder="enter password" onfocus="onFocusFun(this.id);" onblur="onBlurFub(this.id);">
+            <button type="submit" name="save">save</button>
+        </form>
+        
+            <h2>Title</h2>
+            <p>Paragraph example.</p>
+            <p>Paragraph example.</p>
+            <p>Paragraph example.</p>
+            <div class=”box”>
+            <p>Paragraph example.</p>
+            </div>
+            <div>
+                <img src="../Images/gallary_img1.jpg" height="50px" width="50px">
+                <p id="para">fggggggggggggggggggggggg</p>
+                <button onclick="clickme()" >Read more>></button>
+                
+
+              
+            </div>
+    <script>
+       let x=0;
+       let y=0;
+       let z=0;
+       let c=0;
+        function myfun(value){
+                alert(value);
+        }
+        function mouseover(){
+            document.getElementById("demo1").style.color="blue";
+        }
+        function mouseout(){
+            document.getElementById("demo1").style.color="black";
+        }
+        function mousemove(){
+            document.getElementById("move").innerHTML= x+=1;
+        }
+        function mouseenter(){
+            document.getElementById("enter").innerHTML= y+=1;
+        }
+        function mouseover(){
+            document.getElementById("over").innerHTML = z+=1;
+        }
+        function keydown(){
+            
+            document.getElementById("down").innerHTML = "you enter some key";
+            c++;
+            
+            document.getElementById("count").innerHTML = +c;
+            
+
+        }
+        function onFocusFun(id){
+					  
+                      document.getElementById(id).style.border = "5px solid red ";
+                      }
+                      
+                      function onBlurFub(id1){
+                      document.getElementById(id1).style.border ="";
+                      }
+                      
+                     function clickme(){
+                        document.getElementById("para").innerHTML="hhhhSDHGSDFWGFFFFFFFFDDDWDWDWDWWHDDFFF"
+                     }
+    </script>
+</body>
+</html>

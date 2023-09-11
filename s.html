@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about</title>
+    <link rel="stylesheet" href="s.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+
+    <div class="about-container">
+      <p class="text-blk headingText" style="text-align: center;">
+        <u>About Us</u>
+      </p>
+        <div class="responsive-container-block Container bottomContainer">
+          <div class="ultimateImg">
+            <img class="mainImg" src="./images/about2.jpg">
+            <div class="purpleBox">
+              <p class="purpleText">
+                  24/7 support for when you need us the most!
+              </p>
+              <img class="stars" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/mp5.svg">
+            </div>
+          </div>
+          <div class="allText bottomText">
+           
+            <p class="text-blk subHeadingText">
+              Om Ambulance Services
+            </p>
+            <p class="text-blk description">
+              Om Ambulance Services in Pune is one of the leading businesses in the Ambulance Services Also known for Ambulance Serviced.<br>
+              - 24 Hours Ambulance Services,<br>
+              - Cardiac Core Ambulance services,<br>
+              - ventilator Ambulance Services,<br>
+              - AC Ambulance Services,<br>
+              - ICU Ambulance Services and much more.
+            </p>
+            <a class="explore" href="s2.html" target="_blank">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallary_name"><u>Our Gallary</u></div>
+    <div class="gallary_section">
+  <div class="wrapper">
+    <div class="gallery">
+      <div class="image"><span><img src="./images/gallary_img_main.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./images/gallary_img10.jpeg" alt=""></span></div>
+      <div class="image"><span><img src="./images/gallary_img11.jpeg" alt=""></span></div>
+      <div class="image"><span><img src="./images/gallary_img3.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./images/gallary_img12.jpeg" alt=""></span></div>
+      <div class="image"><span><img src="./images/gallary_img9.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./images/gallary_img8.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./images/gallary_img7.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./images/gallary_img1.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./images/gallary_img5.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./images/gallary_img4.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./images/about3.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./images/gallary_img2.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./images/gallary_img6.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./images/about2.jpg" alt=""></span></div>
+
+    </div>
+  </div>
+  <div class="preview-box">
+    <div class="details">
+      <span class="title">Image <p class="current-img"></p> of <p class="total-img"></p></span>
+      <span class="icon fas fa-times"></span>
+    </div>
+    <div class="image-box">
+      <div class="slide prev"><i class="fas fa-angle-left"></i></div>
+      <div class="slide next"><i class="fas fa-angle-right"></i></div>
+      <img src="" alt="">
+    </div>
+  </div>
+  <div class="shadow"></div>
+</div>
+  <script>//getting all required elements
+    const gallery  = document.querySelectorAll(".image"),
+    previewBox = document.querySelector(".preview-box"),
+    previewImg = previewBox.querySelector("img"),
+    closeIcon = previewBox.querySelector(".icon"),
+    currentImg = previewBox.querySelector(".current-img"),
+    totalImg = previewBox.querySelector(".total-img"),
+    shadow = document.querySelector(".shadow");
+    
+    window.onload = ()=>{
+        for (let i = 0; i < gallery.length; i++) {
+            totalImg.textContent = gallery.length; 
+            let newIndex = i; 
+            let clickedImgIndex; 
+            
+            gallery[i].onclick = () =>{
+                clickedImgIndex = i; 
+                function preview(){
+                    currentImg.textContent = newIndex + 1;
+                    let imageURL = gallery[newIndex].querySelector("img").src; //getting user clicked img url
+                    previewImg.src = imageURL; //passing user clicked img url in previewImg src
+                }
+                preview(); 
+        
+                const prevBtn = document.querySelector(".prev");
+                const nextBtn = document.querySelector(".next");
+                if(newIndex == 0){ 
+                    prevBtn.style.display = "none"; 
+                }
+                if(newIndex >= gallery.length - 1){ 
+                    nextBtn.style.display = "none"; 
+                }
+                prevBtn.onclick = ()=>{ 
+                    newIndex--; //decrement index
+                    if(newIndex == 0){
+                        preview(); 
+                        prevBtn.style.display = "none"; 
+                    }else{
+                        preview();
+                        nextBtn.style.display = "block";
+                    } 
+                }
+                nextBtn.onclick = ()=>{ 
+                    newIndex++; //increment index
+                    if(newIndex >= gallery.length - 1){
+                        preview(); 
+                        nextBtn.style.display = "none";
+                    }else{
+                        preview(); 
+                        prevBtn.style.display = "block";
+                    }
+                }
+                document.querySelector("body").style.overflow = "hidden";
+                previewBox.classList.add("show"); 
+                shadow.style.display = "block"; 
+                closeIcon.onclick = ()=>{
+                    newIndex = clickedImgIndex; 
+                    prevBtn.style.display = "block"; 
+                    nextBtn.style.display = "block";
+                    previewBox.classList.remove("show");
+                    shadow.style.display = "none";
+                    document.querySelector("body").style.overflow = "scroll";
+                }
+            }
+            
+        } 
+    }</script>
+
+</body>
+</html>
